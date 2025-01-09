@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          //Location
           Row(
             children: [
               Icon(Icons.location_on_outlined),
@@ -37,6 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 20.0,
           ),
+
+          //User Name
           Text(
             "Hello, Kamrul",
             style: TextStyle(
@@ -47,6 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 10.0,
           ),
+
+          //Available Events
           Text(
             "There are 20 events\narround your location",
             style: TextStyle(
@@ -54,6 +59,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold),
           ),
+
+          //Search bar
+          Container(
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: Colors.white,
+            ),
+            child: TextField(
+              decoration:
+                  InputDecoration(suffixIcon: Icon(Icons.search_outlined)),
+            ),
+          )
         ],
       ),
     ));
