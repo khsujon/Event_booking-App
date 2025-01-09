@@ -77,6 +77,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   border: InputBorder.none,
                   hintText: "Search your location"),
             ),
+          ),
+
+          //Category of Events
+          Container(
+            height: 100,
+            child: ListView(
+              children: [
+                Container(
+                  child: Column(
+                    children: [Text("Category")],
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),
