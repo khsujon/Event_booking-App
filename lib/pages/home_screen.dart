@@ -12,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      padding: EdgeInsets.only(top: 50.0, left: 20.0),
+      padding: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -59,16 +59,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold),
           ),
+          SizedBox(
+            height: 20.0,
+          ),
 
           //Search bar
           Container(
+            padding: EdgeInsets.only(left: 20),
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
               color: Colors.white,
             ),
             child: TextField(
-              decoration:
-                  InputDecoration(suffixIcon: Icon(Icons.search_outlined)),
+              decoration: InputDecoration(
+                  suffixIcon: Icon(Icons.search_outlined),
+                  border: InputBorder.none,
+                  hintText: "Search your location"),
             ),
           )
         ],
