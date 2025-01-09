@@ -1,4 +1,4 @@
-import 'package:book_event/home_screen.dart';
+import 'package:book_event/pages/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
