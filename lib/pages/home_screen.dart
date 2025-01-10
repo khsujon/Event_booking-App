@@ -1,3 +1,4 @@
+import 'package:book_event/custom_widget/event_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -78,17 +79,33 @@ class _HomeScreenState extends State<HomeScreen> {
                   hintText: "Search your location"),
             ),
           ),
-
+          SizedBox(
+            height: 20.0,
+          ),
           //Category of Events
           Container(
-            height: 100,
+            height: 90,
             child: ListView(
+              scrollDirection: Axis.horizontal,
               children: [
-                Container(
-                  child: Column(
-                    children: [Text("Category")],
-                  ),
-                )
+                EventCard(
+                  img: 'images/music.png',
+                  text: 'Music',
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                EventCard(
+                  img: 'images/cloth.png',
+                  text: 'Clothing',
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                EventCard(
+                  img: 'images/confetti.png',
+                  text: 'Festival',
+                ),
               ],
             ),
           )
