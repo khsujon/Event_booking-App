@@ -26,7 +26,10 @@ class _HomeScreenState extends State<HomeScreen> {
           //Location
           Row(
             children: [
-              Icon(Icons.location_on_outlined),
+              Icon(
+                Icons.location_on,
+                color: Colors.red,
+              ),
               Text(
                 "Bosila, Muhammadpur, Dhaka",
                 style: TextStyle(
@@ -223,7 +226,10 @@ class _HomeScreenState extends State<HomeScreen> {
           //Event Location
           Row(
             children: [
-              Icon(Icons.location_on_outlined),
+              Icon(
+                Icons.location_on,
+                color: Colors.red,
+              ),
               Text(
                 "Mirpur, Dhaka",
                 style: TextStyle(
