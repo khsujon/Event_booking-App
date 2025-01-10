@@ -34,8 +34,8 @@ class _BottomNavbarState extends State<BottomNavbar> {
       bottomNavigationBar: CurvedNavigationBar(
           height: 60,
           color: Colors.black,
-          backgroundColor: Colors.white,
-          animationDuration: Duration(milliseconds: 500),
+          backgroundColor: Colors.transparent,
+          animationDuration: Duration(milliseconds: 300),
           onTap: (int index) {
             setState(() {
               currentTabIndex = index;
