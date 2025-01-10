@@ -153,11 +153,86 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(
                       fontSize: 18.0,
                       fontWeight: FontWeight.w500,
-                      color: Colors.lightBlue),
+                      color: Color(0xff6351ec)),
                 ),
               ],
             ),
-          )
+          ),
+
+          SizedBox(height: 10.0),
+
+          Container(
+            margin: EdgeInsets.only(right: 20.0),
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Image.asset(
+                    "images/concert.jpg",
+                    width: MediaQuery.of(context).size.width,
+                    height: 200,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(
+                  top: 10,
+                  left: 10,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.6),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Text(
+                      "JAN 01\n2025",
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          SizedBox(
+            height: 5,
+          ),
+          //event name and pricing
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Nagar Baul Show",
+                style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Text(
+                  "BDT 500",
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff6351ec)),
+                ),
+              )
+            ],
+          ),
+
+          //Event Location
+          Row(
+            children: [
+              Icon(Icons.location_on_outlined),
+              Text(
+                "Mirpur, Dhaka",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
         ],
       ),
     ));
