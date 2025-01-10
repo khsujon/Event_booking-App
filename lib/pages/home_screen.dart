@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      padding: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
+      padding: EdgeInsets.only(top: 50.0, left: 20.0),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -66,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
           //Search bar
           Container(
+            margin: EdgeInsets.only(right: 20.0),
             padding: EdgeInsets.only(left: 20),
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
@@ -126,6 +127,33 @@ class _HomeScreenState extends State<HomeScreen> {
                 EventCard(
                   img: 'images/science.png',
                   text: 'Science',
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+
+          //Upcoming Event
+          Container(
+            margin: EdgeInsets.only(right: 20.0),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Upcoming Events",
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+                Text(
+                  "See all",
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.lightBlue),
                 ),
               ],
             ),
