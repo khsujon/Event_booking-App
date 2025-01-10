@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           //Category of Events
           Container(
-            height: 90,
+            height: 100,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
@@ -103,8 +103,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 30,
                 ),
                 EventCard(
+                  img: 'images/laptop.png',
+                  text: 'Technology',
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                EventCard(
+                  img: 'images/muscles.png',
+                  text: 'Healthcare',
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                EventCard(
                   img: 'images/confetti.png',
                   text: 'Festival',
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                EventCard(
+                  img: 'images/science.png',
+                  text: 'Science',
                 ),
               ],
             ),

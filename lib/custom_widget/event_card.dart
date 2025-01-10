@@ -10,26 +10,29 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 5.0,
-      borderRadius: BorderRadius.circular(10),
-      child: Container(
-        padding: EdgeInsets.all(10.0),
-        width: 100,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(10)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(img, height: 30, width: 30, fit: BoxFit.cover),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              text,
-              style: TextStyle(fontSize: 18.0, color: Colors.black),
-            )
-          ],
+    return Container(
+      margin: EdgeInsets.only(bottom: 10.0),
+      child: Material(
+        elevation: 5.0,
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          padding: EdgeInsets.all(10.0),
+          width: 120,
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(img, height: 30, width: 30, fit: BoxFit.cover),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                text,
+                style: TextStyle(fontSize: 16.0, color: Colors.black),
+              )
+            ],
+          ),
         ),
       ),
     );
