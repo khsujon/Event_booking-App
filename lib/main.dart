@@ -1,5 +1,6 @@
 import 'package:book_event/pages/bottom_navbar.dart';
 import 'package:book_event/pages/details_page.dart';
+import 'package:book_event/pages/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: DetailsPage(),
+      home: Signup(),
     );
   }
 }
