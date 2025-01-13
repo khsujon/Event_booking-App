@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "603355117255",
+    "project_id": "book-event-917db",
+    "storage_bucket": "book-event-917db.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603355117255:android:e408d2dc68a91e68dbb0e2",
+        "android_client_info": {
+          "package_name": "com.example.book_event"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7iPZAqyF9S4hm4S2ZHnw0XCP3H8DrizA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
