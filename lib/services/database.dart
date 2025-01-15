@@ -7,9 +7,4 @@ class DatabaseMethods {
         .doc(id)
         .set(userInfoMap);
   }
-
-  //data retrive from firestore
-  getUserDetails(String id) async {
-    return await FirebaseFirestore.instance.collection("users").doc(id).get();
-  }
 }
