@@ -27,8 +27,15 @@ class AuthMethods {
 
     UserCredential result = await firebaseAuth.signInWithCredential(credential);
 
-    User? user = result.user;
+    User? userDetails = result.user;
 
-    if (result != null) {}
+    if (result != null) {
+      Map<String, dynamic> userInfoMap = {
+        "Name": userDetails!.displayName,
+        "Image": userDetails.photoURL,
+        "Email": userDetails.email,
+        "ID": userDetails.uid,
+      };
+    }
   }
 }
