@@ -1,6 +1,7 @@
 import 'package:book_event/admin_panel/upload_event.dart';
 import 'package:book_event/pages/bottom_navbar.dart';
 import 'package:book_event/pages/details_page.dart';
+import 'package:book_event/pages/home_screen.dart';
 import 'package:book_event/pages/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

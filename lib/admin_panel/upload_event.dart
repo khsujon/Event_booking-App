@@ -8,6 +8,17 @@ class UploadEvent extends StatefulWidget {
 }
 
 class _UploadEventState extends State<UploadEvent> {
+  //Event category list
+  final List<String> eventCategory = [
+    "Music",
+    "Clothing",
+    "Technology",
+    "Healthcare",
+    "Festival",
+    "Science"
+  ];
+
+  String? value;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
