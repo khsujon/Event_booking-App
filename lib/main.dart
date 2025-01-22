@@ -1,3 +1,4 @@
+import 'package:book_event/admin_panel/upload_event.dart';
 import 'package:book_event/pages/bottom_navbar.dart';
 import 'package:book_event/pages/details_page.dart';
 import 'package:book_event/pages/signup.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Signup(),
+      home: UploadEvent(),
     );
   }
 }
