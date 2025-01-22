@@ -12,7 +12,7 @@ class _UploadEventState extends State<UploadEvent> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 40, left: 20),
+        margin: EdgeInsets.only(top: 40, left: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -74,14 +74,64 @@ class _UploadEventState extends State<UploadEvent> {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 30,
+            ),
 
             //Event Name
-
-            Text("Enter Event Name",
+            const Text("Event Name",
                 style: TextStyle(
                   fontSize: 20,
+                  color: Colors.black87,
                   fontWeight: FontWeight.w500,
                 )),
+
+            const SizedBox(
+              height: 10,
+            ),
+
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  color: Color(0xffececf8),
+                  borderRadius: BorderRadius.circular(10)),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Enter Event Name",
+                ),
+              ),
+            ),
+
+            //Ticket Price
+            const SizedBox(
+              height: 30,
+            ),
+            const Text("Ticket Price",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w500,
+                )),
+
+            const SizedBox(
+              height: 10,
+            ),
+
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  color: Color(0xffececf8),
+                  borderRadius: BorderRadius.circular(10)),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Enter Ticket Price",
+                ),
+              ),
+            )
           ],
         ),
       ),
