@@ -142,7 +142,53 @@ class _UploadEventState extends State<UploadEvent> {
                   hintText: "Enter Ticket Price",
                 ),
               ),
-            )
+            ),
+
+            //Event category
+            const SizedBox(
+              height: 30,
+            ),
+            const Text("Event Category",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w500,
+                )),
+
+            const SizedBox(
+              height: 10,
+            ),
+
+            Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    color: Color(0xffececf8),
+                    borderRadius: BorderRadius.circular(10)),
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    items: eventCategory
+                        .map((item) => DropdownMenuItem(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: TextStyle(
+                                  fontSize: 18.0, color: Colors.black),
+                            )))
+                        .toList(),
+                    onChanged: ((value) => setState(() {
+                          this.value = value;
+                        })),
+                    dropdownColor: Colors.white,
+                    hint: Text("Select Event Category"),
+                    iconSize: 36,
+                    icon: Icon(
+                      Icons.arrow_drop_down,
+                      color: Colors.black,
+                    ),
+                    value: value,
+                  ),
+                ))
           ],
         ),
       ),
