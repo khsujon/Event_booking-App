@@ -1,3 +1,4 @@
+import 'package:book_event/pages/bottom_navbar.dart';
 import 'package:book_event/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -42,9 +43,20 @@ class AuthMethods {
       await DatabaseMethods()
           .addUserDetails(userInfoMap, userDetails.uid)
           .then((value) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text("User Signed In"),
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          backgroundColor: Colors.green,
+          content: Text(
+            textAlign: TextAlign.center,
+            "Signed In Successfully",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ),
         ));
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const BottomNavbar(),
+          ),
+        );
       });
     }
   }

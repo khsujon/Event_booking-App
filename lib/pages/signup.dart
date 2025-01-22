@@ -1,4 +1,5 @@
 import 'package:book_event/pages/bottom_navbar.dart';
+import 'package:book_event/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class Signup extends StatefulWidget {
@@ -18,14 +19,14 @@ class _SignupState extends State<Signup> {
           children: [
             Image.asset("images/onboarding.png"),
             SizedBox(),
-            Text(
+            const Text(
               "Book Your Favorite Event",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
+            const Text(
               "Near You!!",
               style: TextStyle(
                 fontSize: 25,
@@ -33,11 +34,11 @@ class _SignupState extends State<Signup> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text(
                   "Discover, book and explore the best events in your city",
                   textAlign: TextAlign.center,
@@ -46,18 +47,14 @@ class _SignupState extends State<Signup> {
                     color: Colors.grey,
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
+
             //Google Signup Button
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BottomNavbar(),
-                  ),
-                );
+                AuthMethods().signInWithGoogle(context);
               },
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
@@ -75,10 +72,10 @@ class _SignupState extends State<Signup> {
                         height: 30,
                         width: 30,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text(
+                      const Text(
                         "Sign up with Google",
                         style: TextStyle(
                             color: Colors.white,
