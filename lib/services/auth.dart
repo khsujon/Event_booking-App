@@ -1,4 +1,6 @@
+import 'package:book_event/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthMethods {
@@ -10,7 +12,7 @@ class AuthMethods {
   }
 
   //sign in with google
-  signInWithGoogle() async {
+  signInWithGoogle(BuildContext context) async {
     final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     final GoogleSignIn googleSignIn = GoogleSignIn();
 
@@ -36,6 +38,14 @@ class AuthMethods {
         "Email": userDetails.email,
         "ID": userDetails.uid,
       };
+
+      await DatabaseMethods()
+          .addUserDetails(userInfoMap, userDetails.uid)
+          .then((value) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("User Signed In"),
+        ));
+      });
     }
   }
 }
