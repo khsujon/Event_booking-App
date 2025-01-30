@@ -7,4 +7,12 @@ class DatabaseMethods {
         .doc(id)
         .set(userInfoMap);
   }
+
+  //upload data of event
+  Future addEvent(Map<String, dynamic> userInfoMap, String id) async {
+    return await FirebaseFirestore.instance
+        .collection("Event")
+        .doc(id)
+        .set(userInfoMap);
+  }
 }

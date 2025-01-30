@@ -1,7 +1,10 @@
 import 'dart:io';
 
+import 'package:book_event/services/database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:random_string/random_string.dart';
 
 class UploadEvent extends StatefulWidget {
   const UploadEvent({super.key});
@@ -264,7 +267,44 @@ class _UploadEventState extends State<UploadEvent> {
 
               //Upload button
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  // String addID = randomAlphaNumeric(10);
+                  // Reference firebaseStorageRef = FirebaseStorage.instance
+                  //     .ref()
+                  //     .child("blogImage")
+                  //     .child(addID);
+                  // final UploadTask task =
+                  //     firebaseStorageRef.putFile(selectedImage!);
+
+                  // var downloadUrl = await (await task).ref.getDownloadURL();
+                  String id = randomAlphaNumeric(10);
+                  Map<String, dynamic> uploadevent = {
+                    "Image": "", //downloadUrl
+                    "Name": nameController.text,
+                    "Price": priceController.text,
+                    "Category": value,
+                    "Detail": detailController.text,
+                  };
+
+                  await DatabaseMethods()
+                      .addEvent(uploadevent, id)
+                      .then((value) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      backgroundColor: Colors.green,
+                      content: Text(
+                        textAlign: TextAlign.center,
+                        "Event Uploaded Successfully",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w600),
+                      ),
+                    ));
+                    setState(() {
+                      nameController.clear();
+                      priceController.clear();
+                      detailController.clear();
+                    });
+                  });
+                },
                 child: Center(
                   child: Container(
                     width: 200,
