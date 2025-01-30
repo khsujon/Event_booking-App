@@ -13,6 +13,10 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+	<key>NSCameraUsageDescription</key>
+    <string>Your app needs access to the camera to take photos and videos.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Your app needs access to the photo library to select photos and videos.</string>
 	<string>book_event</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>

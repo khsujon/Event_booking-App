@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UploadEvent extends StatefulWidget {
   const UploadEvent({super.key});
@@ -19,6 +22,18 @@ class _UploadEventState extends State<UploadEvent> {
   ];
 
   String? value;
+
+  //imagePicker
+  final ImagePicker _picker = ImagePicker();
+  File? selectedImage;
+
+  //ImagePicker Function
+  Future getImage() async {
+    var image = await _picker.pickImage(source: ImageSource.gallery);
+    selectedImage = File(image!.path);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,35 +69,50 @@ class _UploadEventState extends State<UploadEvent> {
               ),
               //Image Upload
               Center(
-                child: Container(
-                  height: 150,
-                  width: 150,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey,
-                      width: 2,
+                child: InkWell(
+                  onTap: () {
+                    getImage();
+                  },
+                  child: Container(
+                    height: 150,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                        width: 2,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.camera_alt_outlined,
-                        size: 50,
-                        color: Colors.blue,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Upload Image",
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                    child: selectedImage != null
+                        ? ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Image.file(
+                              selectedImage!,
+                              height: 150,
+                              width: 150,
+                              fit: BoxFit.cover,
+                            ),
+                          )
+                        : const Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                size: 50,
+                                color: Colors.blue,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Upload Image",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
                   ),
                 ),
               ),
