@@ -11,6 +11,10 @@ class UploadEvent extends StatefulWidget {
 }
 
 class _UploadEventState extends State<UploadEvent> {
+  //TextControllers
+  TextEditingController nameController = TextEditingController();
+  TextEditingController priceController = TextEditingController();
+  TextEditingController detailController = TextEditingController();
   //Event category list
   final List<String> eventCategory = [
     "Music",
@@ -139,6 +143,7 @@ class _UploadEventState extends State<UploadEvent> {
                     color: Color(0xffececf8),
                     borderRadius: BorderRadius.circular(10)),
                 child: TextField(
+                  controller: nameController,
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: "Enter Event Name",
@@ -168,6 +173,7 @@ class _UploadEventState extends State<UploadEvent> {
                     color: Color(0xffececf8),
                     borderRadius: BorderRadius.circular(10)),
                 child: TextField(
+                  controller: priceController,
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: "Enter Ticket Price",
@@ -243,6 +249,7 @@ class _UploadEventState extends State<UploadEvent> {
                     color: Color(0xffececf8),
                     borderRadius: BorderRadius.circular(10)),
                 child: TextField(
+                  controller: detailController,
                   maxLines: 5,
                   decoration: InputDecoration(
                     border: InputBorder.none,
