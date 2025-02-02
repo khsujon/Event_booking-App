@@ -4,6 +4,7 @@ import 'package:book_event/services/database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:random_string/random_string.dart';
 
 class UploadEvent extends StatefulWidget {
@@ -39,6 +40,46 @@ class _UploadEventState extends State<UploadEvent> {
     var image = await _picker.pickImage(source: ImageSource.gallery);
     selectedImage = File(image!.path);
     setState(() {});
+  }
+
+  //Date Picker
+  DateTime selectedDate = DateTime.now();
+  TimeOfDay selectedTime = TimeOfDay(hour: 10, minute: 00);
+
+  Future<void> _pickDate() async {
+    final DateTime? pickDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2100));
+
+    if (pickDate != null && pickDate != selectedDate) {
+      setState(() {
+        selectedDate = pickDate;
+      });
+    }
+  }
+
+  //Time Format
+  String formatTimeOfDay(TimeOfDay time) {
+    final now = DateTime.now();
+
+    final dateTime =
+        DateTime(now.year, now.month, now.day, time.hour, time.minute);
+
+    return DateFormat('hh:mm: a').format(dateTime);
+  }
+
+  //TimePicker
+  Future<void> _pickTime() async {
+    final TimeOfDay? pickedTime =
+        await showTimePicker(context: context, initialTime: TimeOfDay.now());
+
+    if (pickedTime != null && pickedTime != selectedTime) {
+      setState(() {
+        selectedTime = pickedTime;
+      });
+    }
   }
 
   @override
@@ -230,6 +271,71 @@ class _UploadEventState extends State<UploadEvent> {
                     ),
                   )),
 
+              //Date and Time
+              const SizedBox(
+                height: 20,
+              ),
+
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      _pickDate();
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.calendar_month,
+                            color: Colors.blue,
+                            size: 20,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            DateFormat('yyyy-MM-dd').format(selectedDate),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+
+                  //Pick Time
+                  InkWell(
+                    onTap: () {
+                      _pickTime();
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.alarm,
+                            color: Colors.blue,
+                            size: 20,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            formatTimeOfDay(selectedTime),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+
               //Event Details
               const SizedBox(
                 height: 20,
@@ -302,6 +408,7 @@ class _UploadEventState extends State<UploadEvent> {
                       nameController.clear();
                       priceController.clear();
                       detailController.clear();
+                      selectedImage = null;
                     });
                   });
                 },
