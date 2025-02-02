@@ -18,6 +18,7 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  int ticketQuantity = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -176,20 +177,36 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                     child: Column(
                       children: [
-                        Text(
-                          "+",
-                          style: TextStyle(color: Colors.black, fontSize: 25),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              ticketQuantity++;
+                            });
+                          },
+                          child: Text(
+                            "+",
+                            style: TextStyle(color: Colors.black, fontSize: 25),
+                          ),
                         ),
                         Text(
-                          "2",
+                          ticketQuantity.toString(),
                           style: TextStyle(
                               color: Color(0xff6351ec),
                               fontSize: 25,
                               fontWeight: FontWeight.bold),
                         ),
-                        Text(
-                          "-",
-                          style: TextStyle(color: Colors.black, fontSize: 25),
+                        InkWell(
+                          onTap: () {
+                            if (ticketQuantity > 1) {
+                              setState(() {
+                                ticketQuantity--;
+                              });
+                            }
+                          },
+                          child: Text(
+                            "-",
+                            style: TextStyle(color: Colors.black, fontSize: 25),
+                          ),
                         ),
                       ],
                     ),
