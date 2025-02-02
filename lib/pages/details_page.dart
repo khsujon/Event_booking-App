@@ -1,7 +1,17 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatefulWidget {
-  const DetailsPage({super.key});
+  String image, name, location, date, details, price;
+  DetailsPage({
+    Key? key,
+    required this.image,
+    required this.name,
+    required this.location,
+    required this.date,
+    required this.details,
+    required this.price,
+  }) : super(key: key);
 
   @override
   State<DetailsPage> createState() => _DetailsPageState();
@@ -59,7 +69,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Lagar Baul Show",
+                          widget.name,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
@@ -82,7 +92,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                   width: 5,
                                 ),
                                 Text(
-                                  "1 Jan 2025",
+                                  widget.date,
                                   style: TextStyle(
                                       color: Colors.white54,
                                       fontSize: 16,
@@ -102,7 +112,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                   width: 5,
                                 ),
                                 Text(
-                                  "Mirpur, Dhaka",
+                                  widget.location,
                                   style: TextStyle(
                                       color: Colors.white54,
                                       fontSize: 16,
@@ -137,7 +147,7 @@ class _DetailsPageState extends State<DetailsPage> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
-                "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                widget.details,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -193,7 +203,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 Padding(
                   padding: EdgeInsets.only(left: 20, top: 20),
                   child: Text(
-                    "Total Price: BDT 200",
+                    "Total Price: BDT " + widget.price,
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,

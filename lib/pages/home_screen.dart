@@ -49,7 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailsPage(),
+                              builder: (context) => DetailsPage(
+                                date: ds["Date"],
+                                details: ds["Detail"],
+                                image: ds["Image"],
+                                location: ds["Location"],
+                                name: ds["Name"],
+                                price: ds["Price"],
+                              ),
                             ));
                       },
                       child: Column(
