@@ -2,6 +2,7 @@ import 'package:book_event/custom_widget/event_card.dart';
 import 'package:book_event/services/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,6 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemCount: snapshot.data.docs.length,
                   itemBuilder: (context, index) {
                     DocumentSnapshot ds = snapshot.data.docs[index];
+
+                    //Formated date
+
+                    DateTime parseDate = DateTime.parse(ds["Date"]);
+                    String formatedDate =
+                        DateFormat("dd MMM, yyyy").format(parseDate);
                     return Column(
                       children: [
                         Container(
@@ -61,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Colors.white.withOpacity(0.6),
                                       borderRadius: BorderRadius.circular(5)),
                                   child: Text(
-                                    ds["Date"],
+                                    formatedDate,
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w800),
