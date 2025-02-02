@@ -390,6 +390,8 @@ class _UploadEventState extends State<UploadEvent> {
                     "Price": priceController.text,
                     "Category": value,
                     "Detail": detailController.text,
+                    "Date": DateFormat('yyyy-MM-dd').format(selectedDate),
+                    "Time": formatTimeOfDay(selectedTime),
                   };
 
                   await DatabaseMethods()
