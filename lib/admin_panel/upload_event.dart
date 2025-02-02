@@ -19,6 +19,7 @@ class _UploadEventState extends State<UploadEvent> {
   TextEditingController nameController = TextEditingController();
   TextEditingController priceController = TextEditingController();
   TextEditingController detailController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
   //Event category list
   final List<String> eventCategory = [
     "Music",
@@ -168,8 +169,9 @@ class _UploadEventState extends State<UploadEvent> {
                 height: 20,
               ),
 
-              //Event Name
-              const Text("Event Name",
+              //Location
+
+              const Text("Event Location",
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.black87,
@@ -187,10 +189,10 @@ class _UploadEventState extends State<UploadEvent> {
                     color: Color(0xffececf8),
                     borderRadius: BorderRadius.circular(10)),
                 child: TextField(
-                  controller: nameController,
+                  controller: locationController,
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Enter Event Name",
+                    hintText: "Enter Event Location",
                   ),
                 ),
               ),
@@ -387,6 +389,7 @@ class _UploadEventState extends State<UploadEvent> {
                   Map<String, dynamic> uploadevent = {
                     "Image": "", //downloadUrl
                     "Name": nameController.text,
+                    "Location": locationController.text,
                     "Price": priceController.text,
                     "Category": value,
                     "Detail": detailController.text,
@@ -410,6 +413,7 @@ class _UploadEventState extends State<UploadEvent> {
                       nameController.clear();
                       priceController.clear();
                       detailController.clear();
+                      locationController.clear();
                       selectedImage = null;
                     });
                   });

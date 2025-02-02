@@ -15,4 +15,9 @@ class DatabaseMethods {
         .doc(id)
         .set(userInfoMap);
   }
+
+  //Fetch Data
+  Future<Stream<QuerySnapshot>> getallEvents() async {
+    return await FirebaseFirestore.instance.collection("Event").snapshots();
+  }
 }
