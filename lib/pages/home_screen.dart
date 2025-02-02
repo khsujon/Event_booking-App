@@ -1,4 +1,5 @@
 import 'package:book_event/custom_widget/event_card.dart';
+import 'package:book_event/pages/details_page.dart';
 import 'package:book_event/services/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -43,86 +44,95 @@ class _HomeScreenState extends State<HomeScreen> {
                     DateTime parseDate = DateTime.parse(ds["Date"]);
                     String formatedDate =
                         DateFormat("dd MMM, yyyy").format(parseDate);
-                    return Column(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(right: 20.0),
-                          child: Stack(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10.0),
-                                child: Image.asset(
-                                  "images/concert.jpg",
-                                  width: MediaQuery.of(context).size.width,
-                                  height: 200,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              Positioned(
-                                top: 10,
-                                left: 10,
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 5, horizontal: 10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.6),
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child: Text(
-                                    formatedDate,
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w800),
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailsPage(),
+                            ));
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(right: 20.0),
+                            child: Stack(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  child: Image.asset(
+                                    "images/concert.jpg",
+                                    width: MediaQuery.of(context).size.width,
+                                    height: 200,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-
-                        SizedBox(
-                          height: 5,
-                        ),
-                        //event name and pricing
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              ds["Name"],
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black),
+                                Positioned(
+                                  top: 10,
+                                  left: 10,
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 5, horizontal: 10),
+                                    decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.6),
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Text(
+                                      formatedDate,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w800),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 20.0),
-                              child: Text(
-                                "BDT " + ds["Price"],
+                          ),
+
+                          SizedBox(
+                            height: 5,
+                          ),
+                          //event name and pricing
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                ds["Name"],
                                 style: TextStyle(
                                     fontSize: 18.0,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xff6351ec)),
+                                    color: Colors.black),
                               ),
-                            )
-                          ],
-                        ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 20.0),
+                                child: Text(
+                                  "BDT " + ds["Price"],
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff6351ec)),
+                                ),
+                              )
+                            ],
+                          ),
 
-                        //Event Location
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.location_on,
-                              color: Colors.red,
-                            ),
-                            Text(
-                              ds["Location"],
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        )
-                      ],
+                          //Event Location
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.location_on,
+                                color: Colors.red,
+                              ),
+                              Text(
+                                ds["Location"],
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     );
                   })
               : Container();
