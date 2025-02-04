@@ -20,7 +20,7 @@ class _SignupState extends State<Signup> {
             Image.asset("images/onboarding.png"),
             SizedBox(),
             const Text(
-              "Book Your Favorite Event",
+              "Book Your Nearest Event",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -51,7 +51,7 @@ class _SignupState extends State<Signup> {
               height: 30,
             ),
 
-            //Google Signup Button
+            //Google Signup
             InkWell(
               onTap: () {
                 AuthMethods().signInWithGoogle(context);
