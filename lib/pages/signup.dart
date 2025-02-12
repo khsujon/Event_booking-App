@@ -1,4 +1,3 @@
-import 'package:book_event/pages/bottom_navbar.dart';
 import 'package:book_event/services/auth.dart';
 import 'package:flutter/material.dart';
 
