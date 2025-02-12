@@ -20,7 +20,7 @@ class _SignupState extends State<Signup> {
             Image.asset("images/onboarding.png"),
             SizedBox(),
             const Text(
-              "Book Your Nearest Event",
+              "Book Your Favorite Event",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
