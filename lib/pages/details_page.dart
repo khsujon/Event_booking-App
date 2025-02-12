@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class DetailsPage extends StatefulWidget {
   String image, name, location, date, details, price;
   DetailsPage({
@@ -48,7 +49,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       borderRadius: BorderRadius.circular(30),
                       color: Colors.white.withOpacity(0.6),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_back_ios_new_outlined,
                       color: Colors.black,
                     ),
@@ -61,7 +62,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                     width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         gradient: LinearGradient(
                             colors: [Colors.black, Colors.transparent],
                             begin: Alignment.bottomCenter,
@@ -71,12 +72,12 @@ class _DetailsPageState extends State<DetailsPage> {
                       children: [
                         Text(
                           widget.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                               fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Row(
@@ -84,17 +85,17 @@ class _DetailsPageState extends State<DetailsPage> {
                           children: [
                             Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.calendar_month,
                                   color: Colors.white54,
                                   size: 18,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 Text(
                                   widget.date,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white54,
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600),
@@ -104,17 +105,17 @@ class _DetailsPageState extends State<DetailsPage> {
                             // Location
                             Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.location_on,
                                   color: Colors.white54,
                                   size: 18,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 Text(
                                   widget.location,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white54,
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600),
@@ -129,11 +130,11 @@ class _DetailsPageState extends State<DetailsPage> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 20),
               child: Text(
                 "About Event",
                 style: TextStyle(
@@ -142,7 +143,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
