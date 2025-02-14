@@ -152,9 +152,9 @@ class _HomeScreenState extends State<HomeScreen> {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
         body: Container(
-      padding: EdgeInsets.only(top: 50.0, left: 20.0),
+      padding: const EdgeInsets.only(top: 50.0, left: 20.0),
       width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(
               colors: [Color(0xffe3e6ff), Color(0xfff1f3ff), Colors.white],
               begin: Alignment.topLeft,
@@ -178,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
 
@@ -190,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
 
@@ -202,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
 
@@ -222,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   hintText: "Search your location"),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
           //Category of Events
@@ -273,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
 
@@ -301,7 +301,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
 
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
 
           allEvents(),
         ],
