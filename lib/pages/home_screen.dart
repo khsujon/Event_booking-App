@@ -78,14 +78,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                   top: 10,
                                   left: 10,
                                   child: Container(
-                                    padding: EdgeInsets.symmetric(
+                                    padding: const EdgeInsets.symmetric(
                                         vertical: 5, horizontal: 10),
                                     decoration: BoxDecoration(
                                         color: Colors.white.withOpacity(0.6),
                                         borderRadius: BorderRadius.circular(5)),
                                     child: Text(
                                       formatedDate,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w800),
                                     ),
@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           //event name and pricing
@@ -113,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 padding: const EdgeInsets.only(right: 20.0),
                                 child: Text(
                                   "BDT " + ds["Price"],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 18.0,
                                       fontWeight: FontWeight.bold,
                                       color: Color(0xff6351ec)),
@@ -125,13 +125,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           //Event Location
                           Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.location_on,
                                 color: Colors.red,
                               ),
                               Text(
                                 ds["Location"],
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.w500),
