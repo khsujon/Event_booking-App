@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   Stream? eventStream;
 
-  ontheLoad() async {
+  onTheLoad() async {
     eventStream = await DatabaseMethods().getallEvents();
     setState(() {});
   }
@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    ontheLoad();
+    onTheLoad();
     super.initState();
   }
 
